@@ -1,0 +1,115 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model IPagedList<MvcBlog.Models.Makale>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .dairesel {
+        width: 75px;
+        height: 75px;
+        border-radius: 150px;
+        -webkit-border-radius: 150px;
+        -moz-border-radius: 150px;
+    }
+</style>
+
+<br />
+
+@foreach (var item in Model)
+{
+   
+    @*
+            <p class="lead">
+                <img class="img-thumbnail dairesel" width="75" src="@item.Uye.Foto" alt="@item.Uye.AdSoyad" />
+                <span class="fa fa-user">
+                    <a href="/Uye/UyeProfil/@item.Uye.UyeID">@item.Uye.AdSoyad</a>
+                </span>
+            </p>
+
+        <p>
+            <span class="fa fa-tags"></span>@item.Etikets.Count()
+        </p>
+    *@
+
+
+
+    <div class="card mb-4 mx-auto">
+        <img class="img-responsive" src="@item.Foto"  alt="@item.Baslık" />
+
+        <div class="card-body">
+            <h1 class="my-4">
+
+                <small><a href="/Home/MakaleDetay/@item.MakaleID">@item.Baslık</a></small>
+            </h1>
+            @if (item.Icerik.Length > 150)
+            {
+                <p>@Html.Raw(item.Icerik.Substring(0, 150)) ...</p>
+            }
+            else
+            {
+                <p>@Html.Raw(item.Icerik)...</p>
+            }
+            <a href="/Home/MakaleDetay/@item.MakaleID" class="btn btn-primary">Devamını Oku.. &rarr;</a>
+        </div>
+        <div class="card-footer text-muted">
+            <p><span class="fa fa-clock glyphicon glyphicon-time"></span>@string.Format("{0: MMMM yyyy}", item.Tarih)</p>
+        </div>
+    </div>
+    <hr />
+
+}
+<ul class="pagination">
+    
+    <li class="page-item"><a class="page-link" href="/?Page=1">1</a></li>
+    <li class="page-item"><a class="page-link" href="/?Page=2">2</a></li>
+    <li class="page-item"><a class="page-link" href="/?Page=3">3</a></li>
+    
+    
+</ul>
+@*
+    <div class="container">
+        <div class="pagination page-item" style="margin-left:400px">
+
+            @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page }), PagedListRenderOptions.Classic)
+
+
+        </div>
+
+    </div>
+*@
+
+
+
+@*
+    @foreach (var item in Model)
+    {
+        <article class="col-sm-12">
+            <h2>
+                <a href="/Home/MakaleDetay/@item.MakaleID">@item.Baslık</a>
+            </h2>
+            <p class="lead">
+                Yazar <a href="/Uye/Index/@item.Uye.UyeID">@item.Uye.KullaniciAdi</a>
+            </p>
+            <p><span class="glyphicon glyphicon-time"></span>@item.Tarih</p>
+            <hr />
+            <img class="img-responsive" src="@item.Foto"alt="@item.Baslık"/>
+            <hr />
+
+                @if(item.Icerik.Length>150)
+                {
+                    <p>@Html.Raw(item.Icerik.Substring(0,150)) ...</p>
+                }
+                else
+                {
+                    <p>@Html.Raw(item.Icerik)...</p>
+                }
+
+            <a class="btn btn-primary" href="/Home/MakaleDetay/@item.MakaleID">Devamını Oku<span class="glyphicon glyphicon-chevron-right"></span></a>
+            <hr />
+        </article>
+
+    }
+*@
+

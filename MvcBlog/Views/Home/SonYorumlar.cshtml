@@ -1,0 +1,33 @@
+﻿@model IEnumerable<MvcBlog.Models.Yorum>
+@{
+    Layout = null;
+}
+<style>
+    .mavi {
+        color: dodgerblue;
+    }
+</style>
+<h5 class="card-header mavi">Son Yapılan Yorumlar</h5>
+<div class="card-body">
+    <ul>
+        @foreach (var item in Model)
+        {
+            if (item.Icerik.Length > 70)
+            {
+                <li>
+                    <p>
+                        @item.Icerik.Substring(0, 70)...
+                    </p>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <p>
+                        @item.Icerik
+                    </p>
+                </li>
+            }
+        }
+    </ul>
+</div>

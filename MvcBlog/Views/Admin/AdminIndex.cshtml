@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "AdminIndex";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<center>
+    <div class="container-fluid">
+        <br />
+        <!-- Icon Cards-->
+        <div class="row">
+            <div class="col-xl-3 col-sm-6 mb-3">
+                <div class="card text-white bg-primary o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fas fa-fw fa-comments"></i>
+                        </div>
+                        <div class="huge">@ViewBag.YorumSayisi</div>
+                        <div class="mr-5">Yorum Sayısı!</div>
+                    </div>
+                    <a class="card-footer text-white clearfix small z-1" href="/AdminYorum/Index/">
+                        <span class="float-left">Detaylar</span>
+                        <span class="float-right">
+                            <i class="fas fa-angle-right"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3">
+                <div class="card text-white bg-warning o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fas fa-fw fa-list"></i>
+                        </div>
+                        <div class="huge">@ViewBag.MakaleSayisi</div>
+                        <div class="mr-5">Toplam Makale!</div>
+                    </div>
+                    <a class="card-footer text-white clearfix small z-1" href="/AdminMakale/MakaleIndex/">
+                        <span class="float-left">Detaylar</span>
+                        <span class="float-right">
+                            <i class="fas fa-angle-right"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3">
+                <div class="card text-white bg-success o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fas fa-fw fa-comment"></i>
+                        </div>
+                        <div class="huge">@ViewBag.KategoriSayisi</div>
+                        <div class="mr-5">Kategori Sayısı!</div>
+                    </div>
+                    <a class="card-footer text-white clearfix small z-1" href="/AdminKategori/Index/">
+                        <span class="float-left">Detaylar</span>
+                        <span class="float-right">
+                            <i class="fas fa-angle-right"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3">
+                <div class="card text-white bg-danger o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fas fa-user fa-life-ring"></i>
+                        </div>
+                        <div class="huge">@ViewBag.UyeSayisi</div>
+                        <div class="mr-5">Uye Sayısı!</div>
+                    </div>
+                    <a class="card-footer text-white clearfix small z-1" href="/AdminUye/Index/">
+                        <span class="float-left">Detaylar</span>
+                        <span class="float-right">
+                            <i class="fas fa-angle-right"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+     
+
+
+    </div>
+</center>
+
